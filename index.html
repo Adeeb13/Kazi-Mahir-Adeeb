@@ -42,13 +42,42 @@
             z-index: -1;
         }
 
-        /* Custom Cursor */
-        * {
-            cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="%2364b5f6" opacity="0.6"/><circle cx="16" cy="16" r="4" fill="%2364b5f6"/></svg>') 16 16, auto;
+        /* Unique Animated Cursor */
+        body {
+            cursor: none;
         }
 
-        a, button {
-            cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="10" fill="%2364b5f6" opacity="0.8"/><circle cx="16" cy="16" r="6" fill="%2364b5f6"/></svg>') 16 16, pointer;
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #06b6d4;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: all 0.1s ease-out;
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
+        }
+
+        .cursor::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #06b6d4;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 8px rgba(6, 182, 212, 0.8);
+        }
+
+        .cursor.active {
+            width: 30px;
+            height: 30px;
+            border-color: #a855f7;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.8);
         }
 
         /* Navigation */
@@ -241,6 +270,7 @@
             gap: 1rem;
             justify-content: center;
             margin-bottom: 4rem;
+            flex-wrap: wrap;
         }
 
         @media (min-width: 640px) {
@@ -306,6 +336,8 @@
         .badge:nth-child(2) { animation-delay: 0.2s; }
         .badge:nth-child(3) { animation-delay: 0.3s; }
         .badge:nth-child(4) { animation-delay: 0.4s; }
+        .badge:nth-child(5) { animation-delay: 0.5s; }
+        .badge:nth-child(6) { animation-delay: 0.6s; }
 
         .badge:hover {
             transform: translateY(-10px) scale(1.05);
@@ -374,6 +406,8 @@
         .research-card:nth-child(1) { animation-delay: 0.1s; }
         .research-card:nth-child(2) { animation-delay: 0.2s; }
         .research-card:nth-child(3) { animation-delay: 0.3s; }
+        .research-card:nth-child(4) { animation-delay: 0.4s; }
+        .research-card:nth-child(5) { animation-delay: 0.5s; }
 
         .research-card:hover {
             transform: translateY(-15px) scale(1.02);
@@ -397,6 +431,7 @@
         .research-card p {
             color: #94a3b8;
             line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         /* Awards Section */
@@ -415,26 +450,24 @@
             animation: fadeInUp 0.8s ease-out backwards;
         }
 
-        .award-card:nth-child(1) { animation-delay: 0.1s; }
-        .award-card:nth-child(2) { animation-delay: 0.2s; }
-        .award-card:nth-child(3) { animation-delay: 0.3s; }
-        .award-card:nth-child(4) { animation-delay: 0.4s; }
-
         .award-card:hover {
             transform: translateX(10px);
             border-color: #a855f7;
+            background: rgba(30, 41, 59, 0.4);
         }
 
         .award-year {
             color: #a855f7;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            font-size: 0.875rem;
         }
 
         .award-title {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #f1f5f9;
+            line-height: 1.4;
         }
 
         /* Contact Section */
@@ -512,10 +545,17 @@
             nav .container {
                 padding: 0 1rem;
             }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+
     <!-- Navigation -->
     <nav>
         <div class="container">
@@ -541,7 +581,7 @@
             <p class="subtitle">Blending quantum theory, constraint-based AI design, and UN-aligned governance frameworks to build research and products that matter.</p>
             
             <div class="button-group">
-                <a href="https://drive.google.com/file/d/1example/view?usp=sharing" class="btn btn-primary" target="_blank">Download CV</a>
+                <a href="https://drive.google.com/file/d/YOUR_CV_LINK/view?usp=sharing" class="btn btn-primary" target="_blank">📄 Download CV V2</a>
                 <a href="#contact" class="btn btn-secondary">Get in Touch</a>
             </div>
 
@@ -552,19 +592,29 @@
                     <div class="badge-value">2025</div>
                 </div>
                 <div class="badge">
-                    <div class="badge-icon">💻</div>
-                    <div class="badge-label">TCS Scholar</div>
+                    <div class="badge-icon">🎓</div>
+                    <div class="badge-label">Scholar's Laureate</div>
+                    <div class="badge-value">Immerse 2026</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">💡</div>
+                    <div class="badge-label">TKS Scholar</div>
                     <div class="badge-value">2025</div>
                 </div>
                 <div class="badge">
                     <div class="badge-icon">🌍</div>
-                    <div class="badge-label">UNITAR & UN Laureate</div>
-                    <div class="badge-value">2026</div>
+                    <div class="badge-label">ASEAN Youth Delegate</div>
+                    <div class="badge-value">2025</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">🔬</div>
+                    <div class="badge-label">AI Olympiad Winner</div>
+                    <div class="badge-value">2025</div>
                 </div>
                 <div class="badge">
                     <div class="badge-icon">📚</div>
-                    <div class="badge-label">Scholar's Laureate</div>
-                    <div class="badge-value">Immerse 2026</div>
+                    <div class="badge-label">ICT Olympiad</div>
+                    <div class="badge-value">2025</div>
                 </div>
             </div>
         </div>
@@ -575,49 +625,123 @@
         <h2>About</h2>
         <p>I merge theoretical foundations (quantum computing, physics-derived constraints) with pragmatic governance frameworks to build AI systems that are ethically bounded and resilient. I lead research on <strong style="color: #06b6d4;">Constraint-Based Autonomy</strong> — an architecture that encodes international safety norms directly into system constraints so models remain aligned while adapting.</p>
         <p>I also mentor, teach, and engage in community work — including language teaching and outreach in Khulna — and I am exploring innovative approaches to building responsible AI tools for climate and education.</p>
+        <p>My work spans <strong style="color: #a855f7;">quantum computing theory</strong>, <strong style="color: #06b6d4;">ethical AI design</strong>, and <strong style="color: #ec4899;">UN-aligned policy frameworks</strong>, with a focus on creating systems that benefit humanity while respecting international governance principles.</p>
     </section>
 
-    <!-- Research Section -->
+    <!-- Research & Publications Section -->
     <section id="research" class="container">
         <h2>Research & Publications</h2>
         <div class="research-grid">
             <div class="research-card">
                 <div class="status">Under peer review</div>
                 <h3>Conceptual Framework for a Self-Evolving Machine</h3>
-                <p>A theoretical manuscript introducing Constraint-Based Autonomy and proposals for ethically bounded self-optimization.</p>
+                <p>A theoretical manuscript introducing Constraint-Based Autonomy and proposals for ethically bounded self-optimization in AI/Robotics systems.</p>
             </div>
             <div class="research-card">
-                <div class="status">Co-Authored</div>
-                <h3>Universal Basic Mass Density</h3>
-                <p>A cross-disciplinary investigation into astrophysical density concepts and philosophical implications.</p>
+                <div class="status">Under peer review</div>
+                <h3>Investigation into Universal Basic Mass Density</h3>
+                <p>A cross-disciplinary investigation into astrophysical density concepts and philosophical implications in physics and cosmology.</p>
             </div>
             <div class="research-card">
                 <div class="status">Published</div>
-                <h3>Monomoussumi: Selected Essays</h3>
-                <p>Nutrition, entertainment, and cultural identity essays published in Monomoussumi International.</p>
+                <h3>"Munch Selectively to Stand Out"</h3>
+                <p>Published on Monomoussumi.com. Focus: Adolescent nutrition and academic performance optimization.</p>
+            </div>
+            <div class="research-card">
+                <div class="status">Published</div>
+                <h3>"Entertainment Without Borders"</h3>
+                <p>Published on Monomoussumi.com. Focus: Cultural identity and global media consumption patterns.</p>
+            </div>
+            <div class="research-card">
+                <div class="status">Certification</div>
+                <h3>Global Governance & Ethical Policy Cohort</h3>
+                <p>Completed intensive UNITAR, UNECE, UN CC:Learn cohort earning 10+ certifications on international governance and technology policy.</p>
             </div>
         </div>
     </section>
 
-    <!-- Awards Section -->
+    <!-- Global & International Awards -->
     <section id="awards" class="container">
-        <h2>Awards & Recognition</h2>
+        <h2>Global & International Awards</h2>
         <div class="awards-grid">
             <div class="award-card">
                 <div class="award-year">2025</div>
-                <div class="award-title">Queen's Commonwealth Essay Competition — Gold</div>
+                <div class="award-title">Queen's Commonwealth Essay Competition — Gold Award</div>
+            </div>
+            <div class="award-card">
+                <div class="award-year">2026</div>
+                <div class="award-title">Immerse Education — Scholar's Laureate (Highest Distinction)</div>
             </div>
             <div class="award-card">
                 <div class="award-year">2025</div>
-                <div class="award-title">Immerse Education — Scholar's Laureate</div>
+                <div class="award-title">The Knowledge Society (TKS) — Scholar ($3,000 USD Financial Aid)</div>
+            </div>
+            <div class="award-card">
+                <div class="award-year">May 2025</div>
+                <div class="award-title">International Creative Writing Contest — Outstanding Position</div>
             </div>
             <div class="award-card">
                 <div class="award-year">2025</div>
-                <div class="award-title">The Knowledge Society — Scholar</div>
+                <div class="award-title">Studec International — ASEAN Global Youth Summit Delegate</div>
+            </div>
+            <div class="award-card">
+                <div class="award-year">N/A</div>
+                <div class="award-title">John Locke Institute — $500 Scholarship Recipient</div>
+            </div>
+            <div class="award-card">
+                <div class="award-year">N/A</div>
+                <div class="award-title">Immerse Education — Future Innovator 20% Scholarship</div>
             </div>
             <div class="award-card">
                 <div class="award-year">2025</div>
-                <div class="award-title">Bangladesh AI Olympiad — Prelim Winner</div>
+                <div class="award-title">The Poetry Society — Foyle Young Poets of the Year Award</div>
+            </div>
+            <div class="award-card">
+                <div class="award-year">2025</div>
+                <div class="award-title">Bangladesh ICT Olympiad — Semi-Final & Quarter-Final Winner</div>
+            </div>
+            <div class="award-card">
+                <div class="award-year">2025</div>
+                <div class="award-title">Bangladesh AI Olympiad — Preliminary Round Winner</div>
+            </div>
+            <div class="award-card">
+                <div class="award-year">N/A</div>
+                <div class="award-title">Bangladesh Astrophysics & Astronomy Olympiad — National Level Certificate</div>
+            </div>
+            <div class="award-card">
+                <div class="award-year">N/A</div>
+                <div class="award-title">Saint Joseph's High School — Perfect GPA 5.0/5.0, Mark % 91.04%</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical & Industry Expertise -->
+    <section class="container">
+        <h2>Technical & Industry Expertise</h2>
+        <div class="awards-grid">
+            <div class="award-card">
+                <div class="award-year">2025</div>
+                <div class="award-title">AWS Solutions Architecture Job Simulation (Forage)</div>
+            </div>
+            <div class="award-card">
+                <div class="award-year">2025</div>
+                <div class="award-title">Electronic Arts Software Engineering Job Simulation (Forage)</div>
+            </div>
+            <div class="award-card">
+                <div class="award-year">2025</div>
+                <div class="award-title">Deloitte Technology Job Simulation (Forage)</div>
+            </div>
+            <div class="award-card">
+                <div class="award-year">N/A</div>
+                <div class="award-title">Introduction to Quantum Computing (The Open University)</div>
+            </div>
+            <div class="award-card">
+                <div class="award-year">N/A</div>
+                <div class="award-title">Introduction to 2D Animation (Grameenphone Academy)</div>
+            </div>
+            <div class="award-card">
+                <div class="award-year">N/A</div>
+                <div class="award-title">AI-Assisted Birthday Gift Project (Personal Innovation)</div>
             </div>
         </div>
     </section>
@@ -650,11 +774,11 @@
                     </a>
                     <a href="#research" class="contact-item">
                         <span>→</span>
-                        <span>Research</span>
+                        <span>Research & Publications</span>
                     </a>
                     <a href="#awards" class="contact-item">
                         <span>→</span>
-                        <span>Awards</span>
+                        <span>Awards & Achievements</span>
                     </a>
                 </div>
             </div>
@@ -663,11 +787,48 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Kazi Mahir Adeeb • Designed for the future • Built with curiosity</p>
+        <p>© 2025 Kazi Mahir Adeeb • Designed for the future • Built with curiosity & innovation</p>
     </footer>
 
     <!-- Universe Background Canvas -->
     <script>
+        // Custom Animated Cursor
+        const cursor = document.querySelector('.cursor');
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.2;
+            cursorY += (mouseY - cursorY) * 0.2;
+            
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor active state on hover
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('btn')) {
+                cursor.classList.add('active');
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('btn')) {
+                cursor.classList.remove('active');
+            }
+        });
+
+        // Universe Background Canvas
         const canvas = document.createElement('canvas');
         canvas.style.position = 'fixed';
         canvas.style.top = '0';
@@ -826,7 +987,7 @@
                 "https://linkedin.com/in/kazi-mahir-adeeb-62b954340/",
                 "https://instagram.com/kazimahiradeeb"
             ],
-            "description": "Structured Ethical AI Architect specializing in Constraint-Based Autonomy, quantum computing theory, and UN-aligned AI policy."
+            "description": "Structured Ethical AI Architect specializing in Constraint-Based Autonomy, quantum computing theory, and UN-aligned AI policy. Queen's Commonwealth Essay Gold Award winner."
         };
 
         const script = document.createElement('script');
