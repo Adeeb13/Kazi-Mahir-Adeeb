@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KaziMahirAdeeb - Ethical AI Architect & Global Policy Scholar</title>
-    <meta name="description" content="KaziMahirAdeeb is a Structured Ethical AI Architect and Global Policy Scholar specializing in Constraint-Based Autonomy, quantum computing theory, and UN-aligned AI policy. Queen's Commonwealth Essay Gold Award winner.">
+    <meta name="description" content="KaziMahirAdeeb is a Structured Ethical AI Architect and Global Policy Scholar specializing in Constraint-Based Autonomy, quantum computing theory, and UN-aligned AI governance.">
     <meta name="keywords" content="KaziMahirAdeeb, Ethical AI, AI Architect, Quantum Computing, Policy Scholar, Constraint-Based Autonomy">
     <meta name="author" content="Kazi Mahir Adeeb">
     <meta property="og:title" content="KaziMahirAdeeb - Ethical AI Architect">
@@ -20,16 +20,24 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
         html {
             scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0a0e27 0%, #0f1a3d 50%, #050812 100%);
+            background-color: #0a0e27;
+            background-image: linear-gradient(135deg, #0a0e27 0%, #0f1a3d 50%, #050812 100%);
+            background-attachment: fixed;
             color: #e2e8f0;
             overflow-x: hidden;
             position: relative;
+            min-height: 100vh;
         }
 
         /* Universe Background Canvas */
@@ -39,7 +47,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: 1;
+        }
+
+        /* Content wrapper */
+        body > *:not(canvas) {
+            position: relative;
+            z-index: 10;
         }
 
         /* Unique Animated Cursor */
@@ -623,9 +637,9 @@
     <!-- About Section -->
     <section id="about" class="container">
         <h2>About</h2>
-        <p>I merge theoretical foundations (quantum computing, physics-derived constraints) with pragmatic governance frameworks to build AI systems that are ethically bounded and resilient. I lead research on <strong style="color: #06b6d4;">Constraint-Based Autonomy</strong> — an architecture that encodes international safety norms directly into system constraints so models remain aligned while adapting.</p>
-        <p>I also mentor, teach, and engage in community work — including language teaching and outreach in Khulna — and I am exploring innovative approaches to building responsible AI tools for climate and education.</p>
-        <p>My work spans <strong style="color: #a855f7;">quantum computing theory</strong>, <strong style="color: #06b6d4;">ethical AI design</strong>, and <strong style="color: #ec4899;">UN-aligned policy frameworks</strong>, with a focus on creating systems that benefit humanity while respecting international governance principles.</p>
+        <p>I merge theoretical foundations (quantum computing, physics-derived constraints) with pragmatic governance frameworks to build AI systems that are ethically bounded and resilient. I leverage interdisciplinary knowledge to develop actionable solutions for AI safety, policy alignment, and human-centered design.</p>
+        <p>I also mentor, teach, and engage in community work — including language teaching and outreach in Khulna — and I am exploring innovative approaches to building responsible AI tools that serve real-world needs.</p>
+        <p>My work spans <strong style="color: #a855f7;">quantum computing theory</strong>, <strong style="color: #06b6d4;">ethical AI design</strong>, and <strong style="color: #ec4899;">UN-aligned governance frameworks</strong> to push the boundaries of what's possible in responsible innovation.</p>
     </section>
 
     <!-- Research & Publications Section -->
@@ -833,7 +847,7 @@
         canvas.style.position = 'fixed';
         canvas.style.top = '0';
         canvas.style.left = '0';
-        canvas.style.zIndex = '-1';
+        canvas.style.zIndex = '1';
         document.body.appendChild(canvas);
 
         const ctx = canvas.getContext('2d');
@@ -987,7 +1001,7 @@
                 "https://linkedin.com/in/kazi-mahir-adeeb-62b954340/",
                 "https://instagram.com/kazimahiradeeb"
             ],
-            "description": "Structured Ethical AI Architect specializing in Constraint-Based Autonomy, quantum computing theory, and UN-aligned AI policy. Queen's Commonwealth Essay Gold Award winner."
+            "description": "Structured Ethical AI Architect specializing in Constraint-Based Autonomy, quantum computing theory, and UN-aligned AI policy."
         };
 
         const script = document.createElement('script');
